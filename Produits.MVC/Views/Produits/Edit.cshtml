@@ -1,0 +1,90 @@
+﻿@model Produits.MVC.Models.Produit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if(!Model.EstVedette)
+{
+    <h3>Mise à jour</h3>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label">Identifiant</label>
+                    <input asp-for="Id" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prix" class="control-label"></label>
+                    <input asp-for="Prix" class="form-control" />
+                    <span asp-validation-for="Prix" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantite" class="control-label"></label>
+                    <input asp-for="Quantite" class="form-control" />
+                    <span asp-validation-for="Quantite" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" asp-for="EstVedette" disabled />
+                    <label class="control-label">Est produit vedette</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Enregistrer" class="btn btn-primary" /> |
+                    <a class="btn btn-outline-secondary" asp-action="Index">Liste des produits</a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <h3 class="btn-danger vedette-warning">Le produit vedette ne peut être modifié</h3>
+                
+    <hr />
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="card-img-top" src="/images/@Model.Image" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                </div>
+                <div class="col-md-7">
+                    <h1 class="jumbotron-heading">@Model.Nom</h1>
+                    <p class="lead text-muted">@Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+    <br />
+                
+    <div class="form-group">
+        <input type="submit" value="Enregistrer" class="btn btn-primary" disabled /> |
+        <a class="btn btn-outline-secondary" asp-action="Index">Liste des produits</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

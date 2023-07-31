@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create - Produits.MVC</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css?v=fqNzvpQHmFevv4ur5uHdxcMlQ1REpohNErHzjgIVhXE" />
+    <link rel="stylesheet" href="/Produits.MVC.styles.css?v=adKQ1o58yXlPEErKxyjQVaEFR32dapdurXUqG7Qz5dQ" />
+</head>
+<body>
+    <header>
+        <nav b-2w9yzxp1di class="site-header sticky-top py-1">
+            <div b-2w9yzxp1di class="container d-flex flex-column flex-md-row justify-content-between">
+               
+                <a class="py-2 d-none d-md-inline-block" href="/">Catalogue de produits</a>
+                
+                <a class="py-2 d-none d-md-inline-block" href="/Home/Create">Ajouter un produit</a>
+            </div>
+        </nav>
+    </header>
+    <div b-2w9yzxp1di class="container">
+        <main b-2w9yzxp1di role="main" class="pb-3">
+            
+
+<h1>Ajouter</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Home/Create" method="post">
+            
+            <div class="form-group">
+                <label class="control-label" for="Nom">Nom</label>
+                <input class="form-control" type="text" data-val="true" data-val-required="The Nom field is required." id="Nom" name="Nom" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Nom" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Description">Description</label>
+                <input class="form-control" type="text" data-val="true" data-val-required="The Description field is required." id="Description" name="Description" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Prix">Prix</label>
+                <input class="form-control" type="text" data-val="true" data-val-number="The field Prix must be a number." data-val-required="The Prix field is required." id="Prix" name="Prix" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Prix" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Quantite">Quantit&#xE9;</label>
+                <input class="form-control" type="number" data-val="true" data-val-required="The Quantit&#xE9; field is required." id="Quantite" name="Quantite" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Quantite" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Image">Image</label>
+                <input class="form-control" type="text" data-val="true" data-val-required="The Image field is required." id="Image" name="Image" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" data-val="true" data-val-required="The Est produit vedette field is required." id="Vedette" name="Vedette" value="true" /> Est produit vedette
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="btn btn-primary" /> |
+                <a class="btn btn-outline-secondary" href="/">Liste des produits</a>
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8COWMza3m95MvX9cJ3yZLGBKlU_EDGR-XC39Y9orQmmLR7u_L2ntkft7XeK5xVkSSPo5CVk6LRXr9q7C8Vc80SNQGjK1dj_9xEYVpdsuc7G_KgR9itiGrFtkDmuxs6OYlCQiPOYyaMWDnru_rGssQNA" /><input name="Vedette" type="hidden" value="false" /></form>
+    </div>
+</div>
+
+
+        </main>
+    </div>
+
+    <footer b-2w9yzxp1di class="border-top footer text-muted">
+        <div b-2w9yzxp1di class="container">
+            &copy; 2022 - TP1 POO III
+        </div>
+    </footer>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+    
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>

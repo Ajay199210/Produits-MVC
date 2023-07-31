@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Produits.MVC.Models.Produit> 
+
+@{
+    ViewData["Title"] = "Index";
+
+    // Trouver le produit en vedette
+    Produit produitEnVedette = new Produit();
+    if(Model.Count() > 0)
+    {
+        produitEnVedette = @Model.Single(p => p.EstVedette);
+    }
+}
+
+@* Bloc du produit en vedette *@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Produit vedette : @produitEnVedette.Nom</h1>
+        <div class="row">
+            <div class="col-md-5">
+                <img class="card-img-top" src="/images/@produitEnVedette.Image" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+            </div>
+            <div class="col-md-7">
+                <p class="lead text-muted">@produitEnVedette.Description</p>
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-secondary" href="/Produits/Edit/@produitEnVedette.Id">Modifier</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/Produits/Delete/@produitEnVedette.Id">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* Bloc du filtrage *@
+<div class="d-flex justify-content-center">
+    <form method="post" action="/">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <p id="libelleFiltre">Filtre selon le libellé</p>
+            </div>
+            <div class="col-auto">
+                <input id="filtre" name="filtre" class="form-control" type="text" />
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-primary" type="submit" value="Filtrer" />
+            </div>
+        </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8COWMza3m95MvX9cJ3yZLGD4k3srgcsigHBbSXSTsgVWgMmkkNGmOVhSVdkj3EbmXCfHm2pRiZ6MGeGCRl1w_Sn2p0fOCVLK0Ct7jABlag61KUboRXMu6CtAOxsoftZJdyHn688h7C9i9bapgNkM7dg" />
+    </form>
+</div>
+
+@* Bloc de l'album (produits non vedette) *@
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            @foreach(var item in Model)
+            {
+                if(!item.EstVedette)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <h1 class="jumbotron-heading"> @item.Nom</h1>
+                            <img class="card-img-top" src="/images/@item.Image" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">@item.Description</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-sm btn-outline-secondary" href="/Produits/Edit/@item.Id">Modifier</a>
+                                        <a class="btn btn-sm btn-outline-secondary" href="/Produits/Delete/@item.Id">Supprimer</a>
+                                    </div>
+                                    <small class="text-muted">@item.Prix $</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>
